@@ -37,201 +37,23 @@ const TCSDetailsForm = () => {
     alert('TCS Details Submitted Successfully!');
   };
 
-  const styles = {
-    container: {
-      fontFamily: 'Arial, sans-serif',
-      backgroundColor: '#f5f5f5',
-      minHeight: '100vh',
-      padding: '20px',
-    },
-    form: {
-      backgroundColor: '#e8e8e8',
-      maxWidth: '800px',
-      margin: '0 auto',
-      padding: '30px',
-      borderRadius: '8px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-    },
-    header: {
-      textAlign: 'center',
-      marginBottom: '30px',
-    },
-    title: {
-      fontSize: '24px',
-      fontWeight: 'bold',
-      color: '#333',
-      marginBottom: '5px',
-    },
-    subtitle: {
-      fontSize: '14px',
-      color: '#666',
-    },
-    section: {
-      marginBottom: '30px',
-    },
-    sectionTitle: {
-      fontSize: '16px',
-      fontWeight: 'bold',
-      color: '#333',
-      marginBottom: '15px',
-    },
-    tcsTypeContainer: {
-      display: 'flex',
-      gap: '10px',
-      marginBottom: '20px',
-      flexWrap: 'wrap',
-    },
-    tcsTypeButton: {
-      padding: '8px 16px',
-      border: '1px solid #ccc',
-      backgroundColor: '#f8f8f8',
-      cursor: 'pointer',
-      borderRadius: '4px',
-      fontSize: '14px',
-    },
-    tcsTypeButtonActive: {
-      padding: '8px 16px',
-      border: '1px solid #007bff',
-      backgroundColor: '#007bff',
-      color: 'white',
-      cursor: 'pointer',
-      borderRadius: '4px',
-      fontSize: '14px',
-    },
-    row: {
-      display: 'flex',
-      gap: '20px',
-      marginBottom: '15px',
-    },
-    column: {
-      flex: '1',
-    },
-    label: {
-      display: 'block',
-      fontSize: '14px',
-      fontWeight: '500',
-      color: '#333',
-      marginBottom: '5px',
-    },
-    input: {
-      width: '100%',
-      padding: '10px',
-      border: '1px solid #ccc',
-      borderRadius: '4px',
-      fontSize: '14px',
-      backgroundColor: 'white',
-      boxSizing: 'border-box',
-    },
-    select: {
-      width: '100%',
-      padding: '10px',
-      border: '1px solid #ccc',
-      borderRadius: '4px',
-      fontSize: '14px',
-      backgroundColor: 'white',
-      boxSizing: 'border-box',
-    },
-    statusContainer: {
-      display: 'flex',
-      gap: '15px',
-      alignItems: 'center',
-      marginTop: '10px',
-    },
-    statusOption: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '5px',
-    },
-    statusLabel: {
-      fontSize: '14px',
-      cursor: 'pointer',
-    },
-    pendingLabel: {
-      backgroundColor: '#ffc107',
-      color: 'white',
-      padding: '4px 8px',
-      borderRadius: '12px',
-      fontSize: '12px',
-    },
-    filedLabel: {
-      backgroundColor: '#28a745',
-      color: 'white',
-      padding: '4px 8px',
-      borderRadius: '12px',
-      fontSize: '12px',
-    },
-    rejectedLabel: {
-      backgroundColor: '#dc3545',
-      color: 'white',
-      padding: '4px 8px',
-      borderRadius: '12px',
-      fontSize: '12px',
-    },
-    attachmentContainer: {
-      border: '2px dashed #ccc',
-      borderRadius: '8px',
-      padding: '40px',
-      textAlign: 'center',
-      backgroundColor: 'white',
-      marginTop: '10px',
-    },
-    uploadIcon: {
-      fontSize: '48px',
-      color: '#ccc',
-      marginBottom: '10px',
-    },
-    uploadText: {
-      fontSize: '14px',
-      color: '#666',
-      marginBottom: '5px',
-    },
-    uploadSubtext: {
-      fontSize: '12px',
-      color: '#999',
-      marginBottom: '15px',
-    },
-    uploadButton: {
-      backgroundColor: '#f8f9fa',
-      border: '1px solid #ccc',
-      padding: '8px 16px',
-      borderRadius: '4px',
-      cursor: 'pointer',
-      fontSize: '14px',
-    },
-    submitButton: {
-      backgroundColor: '#007bff',
-      color: 'white',
-      padding: '12px 30px',
-      border: 'none',
-      borderRadius: '4px',
-      fontSize: '16px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-      display: 'block',
-      margin: '30px auto 0',
-    },
-    fileInput: {
-      display: 'none',
-    }
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.form}>
-        <div style={styles.header}>
-          <h1 style={styles.title}>TCS Details Entry</h1>
-          <p style={styles.subtitle}>Input the TCS-related details</p>
+    <div className="tcs-form-container">
+      <div className="tcs-form">
+        <div className="tcs-form-header">
+          <h1 className="tcs-form-title">TCS Details Entry</h1>
+          <p className="tcs-form-subtitle">Input the TCS-related details</p>
         </div>
 
         {/* TCS Type Selection */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Select TCS Type</h2>
-          <div style={styles.tcsTypeContainer}>
+        <div className="tcs-form-section">
+          <h2 className="tcs-section-title">Select TCS Type</h2>
+          <div className="tcs-type-container">
             {['Regular', 'E-commerce', 'Foreign Remittance', 'Overseas Tour'].map((type) => (
               <button
                 key={type}
                 type="button"
-                style={formData.tcsType === type ? styles.tcsTypeButtonActive : styles.tcsTypeButton}
+                className={`tcs-type-button ${formData.tcsType === type ? 'active' : ''}`}
                 onClick={() => setFormData(prev => ({ ...prev, tcsType: type }))}
               >
                 {type}
@@ -241,29 +63,29 @@ const TCSDetailsForm = () => {
         </div>
 
         {/* Business Information */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Business Information</h2>
+        <div className="tcs-form-section">
+          <h2 className="tcs-section-title">Business Information</h2>
           
-          <div style={styles.row}>
-            <div style={styles.column}>
-              <label style={styles.label}>Legal Name of Business *</label>
+          <div className="tcs-form-row">
+            <div className="tcs-form-column">
+              <label className="tcs-form-label">Legal Name of Business *</label>
               <input
                 type="text"
                 name="businessName"
                 placeholder="Enter legal business name"
-                style={styles.input}
+                className="tcs-form-input"
                 value={formData.businessName}
                 onChange={handleInputChange}
                 required
               />
             </div>
-            <div style={styles.column}>
-              <label style={styles.label}>PAN Number *</label>
+            <div className="tcs-form-column">
+              <label className="tcs-form-label">PAN Number *</label>
               <input
                 type="text"
                 name="panNumber"
                 placeholder="Enter PAN number"
-                style={styles.input}
+                className="tcs-form-input"
                 value={formData.panNumber}
                 onChange={handleInputChange}
                 required
@@ -271,12 +93,12 @@ const TCSDetailsForm = () => {
             </div>
           </div>
 
-          <div style={styles.row}>
-            <div style={styles.column}>
-              <label style={styles.label}>Type of Business *</label>
+          <div className="tcs-form-row">
+            <div className="tcs-form-column">
+              <label className="tcs-form-label">Type of Business *</label>
               <select
                 name="businessType"
-                style={styles.select}
+                className="tcs-form-select"
                 value={formData.businessType}
                 onChange={handleInputChange}
                 required
@@ -291,13 +113,13 @@ const TCSDetailsForm = () => {
                 <option value="Other">Other</option>
               </select>
             </div>
-            <div style={styles.column}>
-              <label style={styles.label}>Email ID *</label>
+            <div className="tcs-form-column">
+              <label className="tcs-form-label">Email ID *</label>
               <input
                 type="email"
                 name="emailId"
                 placeholder="Enter email address"
-                style={styles.input}
+                className="tcs-form-input"
                 value={formData.emailId}
                 onChange={handleInputChange}
                 required
@@ -305,26 +127,26 @@ const TCSDetailsForm = () => {
             </div>
           </div>
 
-          <div style={styles.row}>
-            <div style={styles.column}>
-              <label style={styles.label}>Phone Number *</label>
+          <div className="tcs-form-row">
+            <div className="tcs-form-column">
+              <label className="tcs-form-label">Phone Number *</label>
               <input
                 type="tel"
                 name="phoneNumber"
                 placeholder="Enter phone number"
-                style={styles.input}
+                className="tcs-form-input"
                 value={formData.phoneNumber}
                 onChange={handleInputChange}
                 required
               />
             </div>
-            <div style={styles.column}>
-              <label style={styles.label}>TAN Number</label>
+            <div className="tcs-form-column">
+              <label className="tcs-form-label">TAN Number</label>
               <input
                 type="text"
                 name="tanNumber"
                 placeholder="Enter TAN number"
-                style={styles.input}
+                className="tcs-form-input"
                 value={formData.tanNumber}
                 onChange={handleInputChange}
               />
@@ -333,36 +155,36 @@ const TCSDetailsForm = () => {
         </div>
 
         {/* Filing Details */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Filing Details</h2>
+        <div className="tcs-form-section">
+          <h2 className="tcs-section-title">Filing Details</h2>
           
-          <div style={styles.row}>
-            <div style={styles.column}>
-              <label style={styles.label}>Date of Receipt</label>
+          <div className="tcs-form-row">
+            <div className="tcs-form-column">
+              <label className="tcs-form-label">Date of Receipt</label>
               <input
                 type="date"
                 name="dateOfReceipt"
-                style={styles.input}
+                className="tcs-form-input"
                 value={formData.dateOfReceipt}
                 onChange={handleInputChange}
               />
             </div>
-            <div style={styles.column}>
-              <label style={styles.label}>Due Date</label>
+            <div className="tcs-form-column">
+              <label className="tcs-form-label">Due Date</label>
               <input
                 type="date"
                 name="dueDate"
-                style={styles.input}
+                className="tcs-form-input"
                 value={formData.dueDate}
                 onChange={handleInputChange}
               />
             </div>
-            <div style={styles.column}>
-              <label style={styles.label}>Filing Date</label>
+            <div className="tcs-form-column">
+              <label className="tcs-form-label">Filing Date</label>
               <input
                 type="date"
                 name="filingDate"
-                style={styles.input}
+                className="tcs-form-input"
                 value={formData.filingDate}
                 onChange={handleInputChange}
               />
@@ -371,9 +193,9 @@ const TCSDetailsForm = () => {
 
           {/* Status */}
           <div>
-            <label style={styles.label}>Status</label>
-            <div style={styles.statusContainer}>
-              <div style={styles.statusOption}>
+            <label className="tcs-form-label">Status</label>
+            <div className="tcs-status-container">
+              <div className="tcs-status-option">
                 <input
                   type="radio"
                   id="pending"
@@ -382,9 +204,9 @@ const TCSDetailsForm = () => {
                   checked={formData.status === 'Pending'}
                   onChange={handleInputChange}
                 />
-                <label htmlFor="pending" style={styles.pendingLabel}>Pending</label>
+                <label htmlFor="pending" className="tcs-pending-label">Pending</label>
               </div>
-              <div style={styles.statusOption}>
+              <div className="tcs-status-option">
                 <input
                   type="radio"
                   id="filed"
@@ -393,9 +215,9 @@ const TCSDetailsForm = () => {
                   checked={formData.status === 'Filed'}
                   onChange={handleInputChange}
                 />
-                <label htmlFor="filed" style={styles.filedLabel}>Filed</label>
+                <label htmlFor="filed" className="tcs-filed-label">Filed</label>
               </div>
-              <div style={styles.statusOption}>
+              <div className="tcs-status-option">
                 <input
                   type="radio"
                   id="rejected"
@@ -404,40 +226,40 @@ const TCSDetailsForm = () => {
                   checked={formData.status === 'Rejected'}
                   onChange={handleInputChange}
                 />
-                <label htmlFor="rejected" style={styles.rejectedLabel}>Rejected</label>
+                <label htmlFor="rejected" className="tcs-rejected-label">Rejected</label>
               </div>
             </div>
-            <div style={{ fontSize: '12px', color: '#666', marginTop: '5px' }}>
+            <div className="tcs-status-subtext">
               Select status
             </div>
           </div>
         </div>
 
         {/* Attachments */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Attachments</h2>
-          <div style={styles.attachmentContainer}>
-            <div style={styles.uploadIcon}>↑</div>
-            <div style={styles.uploadText}>Click to upload or drag and drop</div>
-            <div style={styles.uploadSubtext}>Supported formats: PDF, DOC</div>
+        <div className="tcs-form-section">
+          <h2 className="tcs-section-title">Attachments</h2>
+          <div className="tcs-attachment-container">
+            <div className="tcs-upload-icon">↑</div>
+            <div className="tcs-upload-text">Click to upload or drag and drop</div>
+            <div className="tcs-upload-subtext">Supported formats: PDF, DOC</div>
             <input
               type="file"
               id="fileInput"
-              style={styles.fileInput}
+              className="tcs-file-input"
               multiple
               accept=".pdf,.doc,.docx"
               onChange={handleFileUpload}
             />
-            <label htmlFor="fileInput" style={styles.uploadButton}>
+            <label htmlFor="fileInput" className="tcs-upload-button">
               Upload Files
             </label>
           </div>
           {attachments.length > 0 && (
-            <div style={{ marginTop: '10px' }}>
+            <div className="tcs-uploaded-files">
               <strong>Uploaded files:</strong>
               <ul>
                 {attachments.map((file, index) => (
-                  <li key={index} style={{ fontSize: '14px', color: '#666' }}>
+                  <li key={index} className="tcs-file-item">
                     {file.name}
                   </li>
                 ))}
@@ -446,7 +268,7 @@ const TCSDetailsForm = () => {
           )}
         </div>
 
-        <button type="button" style={styles.submitButton} onClick={handleSubmit}>
+        <button type="button" className="tcs-submit-button" onClick={handleSubmit}>
           Submit TCS Details
         </button>
       </div>

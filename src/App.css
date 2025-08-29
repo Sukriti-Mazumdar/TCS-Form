@@ -2,6 +2,9 @@
   text-align: center;
   height: 100vh; /* Ensure full height */
   width: 100vw; /* Ensure full width */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .App-logo {
@@ -72,44 +75,18 @@ body {
   margin-bottom: 30px;
 }
 
-.tcs-form-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 5px;
-}
-
 .tcs-form-subtitle {
   font-size: 14px;
   color: #666;
-}
-
-.tcs-form-section {
   margin-bottom: 30px;
 }
 
 .tcs-section-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.tcs-type-container {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.tcs-type-button {
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  background-color: #f8f8f8;
   cursor: pointer;
   border-radius: 4px;
   font-size: 14px;
 }
+
 
 .tcs-type-button.active {
   border: 1px solid #007bff;

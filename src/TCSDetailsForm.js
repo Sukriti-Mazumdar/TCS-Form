@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TCSDetailsForm = () => {
+const TCSDetailsForm = ({ onLogout }) => {
   const [formData, setFormData] = useState({
     tcsType: 'Regular',
     businessName: '',
@@ -41,8 +41,15 @@ const TCSDetailsForm = () => {
     <div className="tcs-form-container">
       <div className="tcs-form">
         <div className="tcs-form-header">
-          <h1 className="tcs-form-title">TCS Details Entry</h1>
-          <p className="tcs-form-subtitle">Input the TCS-related details</p>
+          <div className="tcs-header-content">
+            <div>
+              <h1 className="tcs-form-title">TCS Details Entry</h1>
+              <p className="tcs-form-subtitle">Input the TCS-related details</p>
+            </div>
+            <button className="tcs-logout-button" onClick={onLogout}>
+              Logout
+            </button>
+          </div>
         </div>
 
         {/* TCS Type Selection */}
